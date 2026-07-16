@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIP Invitation - Fabrice & Martine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #c5a059; --gold-light: #e2c28a; --dark: #0a0a0a; }
         html { scroll-behavior: smooth; }
@@ -41,19 +41,23 @@
 
         .heart { position: fixed; top: -10%; font-size: 18px; color: #d63031; pointer-events: none; z-index: 100; animation: fall linear forwards; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+
+        /* Ombre pour texte sur photo claire */
+        .shadow-text { text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION (Voile réduit à 0.4 pour plus de visibilité) -->
+    <!-- HERO SECTION (Photo claire, sans voile) -->
     <section class="section-bg" style="background-image: url('https://i.postimg.cc/kDHh8RSz/A7400159.jpg');">
-        <div class="overlay-dark" style="background: rgba(0, 0, 0, 0.4);"></div>
+        <!-- Overlay quasi invisible pour garder la photo claire -->
+        <div class="overlay-dark" style="background: rgba(0, 0, 0, 0.05);"></div>
         <div class="relative z-10 text-center px-4">
-            <p class="uppercase tracking-[0.5em] text-[10px] mb-6 opacity-70 reveal active text-white drop-shadow-md">Invitation Officielle</p>
-            <h1 class="serif text-5xl mb-4 text-gold italic font-light reveal active drop-shadow-lg">Fabrice & Martine</h1>
-            <div class="w-12 h-[1px] bg-gold mx-auto my-8 reveal active"></div>
-            <p class="text-sm tracking-[0.2em] font-light uppercase reveal active text-white drop-shadow-md" id="welcome-name">Chargement...</p>
-            <div class="mt-24 animate-bounce opacity-40 text-[9px] tracking-[0.3em] text-white">Défiler</div>
+            <p class="uppercase tracking-[0.5em] text-[11px] mb-6 font-semibold shadow-text reveal active">Invitation Officielle</p>
+            <h1 class="serif text-5xl mb-4 text-gold italic font-bold reveal active shadow-text">Fabrice & Martine</h1>
+            <div class="w-16 h-[2px] bg-gold mx-auto my-8 reveal active shadow-lg"></div>
+            <p class="text-md tracking-[0.2em] font-bold uppercase reveal active shadow-text" id="welcome-name">Chargement...</p>
+            <div class="mt-24 animate-bounce opacity-80 text-[10px] tracking-[0.3em] font-bold shadow-text text-white">Défiler</div>
         </div>
     </section>
 
@@ -91,8 +95,6 @@
             <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-8">Personnalisez votre rafraîchissement</p>
             
             <div id="drinks-container" class="space-y-4 mb-12 text-center">
-                
-                <!-- PRESTIGE -->
                 <p class="category-title">Bulles & Prestige</p>
                 <div class="grid grid-cols-2 gap-3">
                     <button onclick="selectDrink('Champagne', this)" class="drink-chip">Champagne</button>
@@ -100,8 +102,6 @@
                     <button onclick="selectDrink('Vin Blanc Sec', this)" class="drink-chip">Vin Blanc</button>
                     <button onclick="selectDrink('Whisky / Liqueur', this)" class="drink-chip">Spiritueux</button>
                 </div>
-
-                <!-- BRASSERIE -->
                 <p class="category-title">Côté Brasserie</p>
                 <div class="grid grid-cols-3 gap-2">
                     <button onclick="selectDrink('Heineken', this)" class="drink-chip">Heineken</button>
@@ -111,8 +111,6 @@
                     <button onclick="selectDrink('Tembo', this)" class="drink-chip">Tembo</button>
                     <button onclick="selectDrink('Castel', this)" class="drink-chip">Castel</button>
                 </div>
-
-                <!-- SUCRES -->
                 <p class="category-title">Douceurs & Softs</p>
                 <div class="grid grid-cols-3 gap-2">
                     <button onclick="selectDrink('Coca-Cola', this)" class="drink-chip">Coca-Cola</button>
@@ -122,8 +120,6 @@
                     <button onclick="selectDrink('Tonic', this)" class="drink-chip">Tonic</button>
                     <button onclick="selectDrink('Malta', this)" class="drink-chip">Malta</button>
                 </div>
-
-                <!-- VITALITE -->
                 <p class="category-title">Vitalité</p>
                 <div class="grid grid-cols-2 gap-3">
                     <button onclick="selectDrink('Jus d\'Orange Naturel', this)" class="drink-chip">Jus d'Orange</button>
