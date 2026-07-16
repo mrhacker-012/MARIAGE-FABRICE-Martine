@@ -11,34 +11,22 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background-color: var(--dark); color: #ffffff; margin: 0; overflow-x: hidden; }
         .serif { font-family: 'Playfair Display', serif; }
-        
-        /* Or Métallique Animé */
         .text-gold { background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .bg-gold { background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%); color: #000; position: relative; overflow: hidden; }
-        
         .bg-gold::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: rgba(255,255,255,0.2); transform: rotate(45deg);
             animation: shine 3s infinite;
         }
         @keyframes shine { 0% { margin-left: -150%; } 100% { margin-left: 150%; } }
-
-        .section-bg { 
-            background-size: cover; background-position: center; background-attachment: fixed;
-            position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
-        }
+        .section-bg { background-size: cover; background-position: center; background-attachment: fixed; position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
         .overlay-dark { background: rgba(0, 0, 0, 0.7); position: absolute; inset: 0; }
-        
         .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-
         .premium-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 2px; padding: 40px 20px; }
-        
-        /* Boutons Boissons */
         .drink-chip { border: 1px solid rgba(255,255,255,0.15); padding: 10px 5px; font-size: 9px; letter-spacing: 1px; transition: all 0.3s ease; text-transform: uppercase; background: rgba(255,255,255,0.02); color: #aaa; width: 100%; }
         .drink-chip.selected { background: #bf953f; color: white; border-color: #bf953f; transform: scale(1.05); box-shadow: 0 0 15px rgba(191, 149, 63, 0.3); }
         .category-title { font-size: 10px; color: #bf953f; letter-spacing: 3px; margin-bottom: 15px; margin-top: 25px; text-transform: uppercase; border-bottom: 1px solid rgba(191,149,63,0.2); display: inline-block; padding-bottom: 5px; }
-
         .heart { position: fixed; top: -10%; font-size: 18px; color: #d63031; pointer-events: none; z-index: 100; animation: fall linear forwards; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
     </style>
@@ -91,7 +79,6 @@
             <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-8">Personnalisez votre rafraîchissement</p>
             
             <div id="drinks-container" class="space-y-4 mb-12 text-center">
-                
                 <p class="category-title">Bulles & Prestige</p>
                 <div class="grid grid-cols-2 gap-3">
                     <button onclick="selectDrink('Champagne', this)" class="drink-chip">Champagne</button>
@@ -99,7 +86,6 @@
                     <button onclick="selectDrink('Vin Blanc Sec', this)" class="drink-chip">Vin Blanc</button>
                     <button onclick="selectDrink('Whisky / Liqueur', this)" class="drink-chip">Spiritueux</button>
                 </div>
-
                 <p class="category-title">Côté Brasserie</p>
                 <div class="grid grid-cols-3 gap-2">
                     <button onclick="selectDrink('Heineken', this)" class="drink-chip">Heineken</button>
@@ -109,7 +95,6 @@
                     <button onclick="selectDrink('Tembo', this)" class="drink-chip">Tembo</button>
                     <button onclick="selectDrink('Castel', this)" class="drink-chip">Castel</button>
                 </div>
-
                 <p class="category-title">Douceurs & Softs</p>
                 <div class="grid grid-cols-3 gap-2">
                     <button onclick="selectDrink('Coca-Cola', this)" class="drink-chip">Coca-Cola</button>
@@ -119,7 +104,6 @@
                     <button onclick="selectDrink('Tonic', this)" class="drink-chip">Tonic</button>
                     <button onclick="selectDrink('Malta', this)" class="drink-chip">Malta</button>
                 </div>
-
                 <p class="category-title">Vitalité</p>
                 <div class="grid grid-cols-2 gap-3">
                     <button onclick="selectDrink('Jus d\'Orange Naturel', this)" class="drink-chip">Jus d'Orange</button>
@@ -179,44 +163,36 @@
     <script>
         const MON_NUMERO = "243812836540";
         let selectedDrink = "";
-
         const params = new URLSearchParams(window.location.search);
         const nomInvite = params.get('n') || "Cher Invité";
         const nomVillage = params.get('v') || "À Déterminer";
         const numTable = params.get('t') || "À l'accueil";
-
         document.getElementById('welcome-name').innerText = "Bienvenue, " + nomInvite.replace(/_/g, ' ');
         document.getElementById('guest-label').innerText = nomInvite.replace(/_/g, ' ');
         document.getElementById('village-label').innerText = nomVillage.replace(/_/g, ' ');
         document.getElementById('table-label').innerText = numTable.replace(/_/g, ' ');
-        
         document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=VIP-FM2026-${nomInvite}`;
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
         function selectDrink(name, el) {
             document.querySelectorAll('.drink-chip').forEach(c => c.classList.remove('selected'));
             el.classList.add('selected');
             selectedDrink = name;
         }
-
         function submitRSVP() {
             if(!selectedDrink) return alert("Veuillez sélectionner une boisson.");
             const msg = `*CONFIRMATION VIP*%0A--------------------------%0A👤 *Invité:* ${nomInvite.replace(/_/g, ' ')}%0A🌍 *Village:* ${nomVillage.replace(/_/g, ' ')}%0A📍 *Table:* ${numTable.replace(/_/g, ' ')}%0A🍷 *Boisson:* ${selectedDrink}`;
             window.location.href = `https://wa.me/${MON_NUMERO}?text=${msg}`;
         }
-
         function submitGuestbook() {
             const msg = document.getElementById('guestbook-msg').value;
             if(!msg) return alert("Veuillez écrire un petit mot.");
             window.location.href = `https://wa.me/${MON_NUMERO}?text=*LIVRE D'OR*%0A👤 *De:* ${nomInvite.replace(/_/g, ' ')}%0A✉️ *Message:* ${msg}`;
         }
-
         setInterval(() => {
             const h = document.createElement('div');
             h.className = 'heart'; h.innerHTML = '❤️';
