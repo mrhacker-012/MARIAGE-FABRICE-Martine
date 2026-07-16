@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIP Invitation - Fabrice & Martine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&swap" rel="stylesheet">
     <style>
         :root { --gold: #c5a059; --gold-light: #e2c28a; --dark: #0a0a0a; }
         html { scroll-behavior: smooth; }
@@ -45,15 +45,15 @@
 </head>
 <body>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (Voile réduit à 0.4 pour plus de visibilité) -->
     <section class="section-bg" style="background-image: url('https://i.postimg.cc/kDHh8RSz/A7400159.jpg');">
-        <div class="overlay-dark"></div>
+        <div class="overlay-dark" style="background: rgba(0, 0, 0, 0.4);"></div>
         <div class="relative z-10 text-center px-4">
-            <p class="uppercase tracking-[0.5em] text-[10px] mb-6 opacity-70 reveal active">Invitation Officielle</p>
-            <h1 class="serif text-5xl mb-4 text-gold italic font-light reveal active">Fabrice & Martine</h1>
+            <p class="uppercase tracking-[0.5em] text-[10px] mb-6 opacity-70 reveal active text-white drop-shadow-md">Invitation Officielle</p>
+            <h1 class="serif text-5xl mb-4 text-gold italic font-light reveal active drop-shadow-lg">Fabrice & Martine</h1>
             <div class="w-12 h-[1px] bg-gold mx-auto my-8 reveal active"></div>
-            <p class="text-sm tracking-[0.2em] font-light uppercase reveal active" id="welcome-name">Chargement...</p>
-            <div class="mt-24 animate-bounce opacity-40 text-[9px] tracking-[0.3em]">Défiler</div>
+            <p class="text-sm tracking-[0.2em] font-light uppercase reveal active text-white drop-shadow-md" id="welcome-name">Chargement...</p>
+            <div class="mt-24 animate-bounce opacity-40 text-[9px] tracking-[0.3em] text-white">Défiler</div>
         </div>
     </section>
 
@@ -62,7 +62,9 @@
         <div class="overlay-dark" style="background: rgba(0,0,0,0.85);"></div>
         <div class="relative z-10 w-full max-w-lg px-6 reveal">
             <div class="premium-card text-center shadow-2xl">
-                <h2 class="serif text-3xl text-gold mb-12 italic">Le Programme</h2>
+                <h2 class="serif text-3xl text-gold mb-4 italic">Le Programme</h2>
+                <p class="text-white tracking-[0.3em] text-[12px] mb-10 uppercase">Lundi 13 Juillet 2026</p>
+                
                 <div class="space-y-12">
                     <div>
                         <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-2">10 Heures Précises</p>
@@ -175,7 +177,7 @@
     </section>
 
     <footer class="bg-white py-12 text-center">
-        <p class="text-[9px] uppercase tracking-[0.6em] text-black opacity-30 italic">Union Sacrée • Fabrice & Martine • 2026</p>
+        <p class="text-[9px] uppercase tracking-[0.6em] text-black opacity-30 italic">Union Sacrée • Fabrice & Martine • 13 Juillet 2026</p>
     </footer>
 
     <script>
@@ -209,7 +211,7 @@
 
         function submitRSVP() {
             if(!selectedDrink) return alert("Veuillez sélectionner une boisson.");
-            const msg = `*CONFIRMATION VIP*%0A👤 *Invité:* ${nomInvite.replace(/_/g, ' ')}%0A🌍 *Village:* ${nomVillage.replace(/_/g, ' ')}%0A📍 *Table:* ${numTable.replace(/_/g, ' ')}%0A🍷 *Boisson:* ${selectedDrink}`;
+            const msg = `*CONFIRMATION VIP*%0A--------------------------%0A👤 *Invité:* ${nomInvite.replace(/_/g, ' ')}%0A🌍 *Village:* ${nomVillage.replace(/_/g, ' ')}%0A📍 *Table:* ${numTable.replace(/_/g, ' ')}%0A🍷 *Boisson:* ${selectedDrink}`;
             window.location.href = `https://wa.me/${MON_NUMERO}?text=${msg}`;
         }
 
