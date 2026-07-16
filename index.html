@@ -16,7 +16,6 @@
         .text-gold { background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .bg-gold { background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%); color: #000; position: relative; overflow: hidden; }
         
-        /* Effet de brillance sur les boutons */
         .bg-gold::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: rgba(255,255,255,0.2); transform: rotate(45deg);
@@ -24,23 +23,22 @@
         }
         @keyframes shine { 0% { margin-left: -150%; } 100% { margin-left: 150%; } }
 
-        /* Sections & Parallax */
         .section-bg { 
             background-size: cover; background-position: center; background-attachment: fixed;
             position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
         }
         .overlay-dark { background: rgba(0, 0, 0, 0.7); position: absolute; inset: 0; }
         
-        /* Animations d'apparition (Reveal) */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         .premium-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 2px; padding: 40px 20px; }
         
-        .drink-chip { border: 1px solid rgba(255,255,255,0.2); padding: 12px; font-size: 10px; letter-spacing: 1px; transition: all 0.4s ease; text-transform: uppercase; }
-        .drink-chip.selected { background: #bf953f; color: white; border-color: #bf953f; transform: scale(1.1); box-shadow: 0 0 20px rgba(191, 149, 63, 0.4); }
+        /* Boutons Boissons */
+        .drink-chip { border: 1px solid rgba(255,255,255,0.15); padding: 10px 5px; font-size: 9px; letter-spacing: 1px; transition: all 0.3s ease; text-transform: uppercase; background: rgba(255,255,255,0.02); color: #aaa; width: 100%; }
+        .drink-chip.selected { background: #bf953f; color: white; border-color: #bf953f; transform: scale(1.05); box-shadow: 0 0 15px rgba(191, 149, 63, 0.3); }
+        .category-title { font-size: 10px; color: #bf953f; letter-spacing: 3px; margin-bottom: 15px; margin-top: 25px; text-transform: uppercase; border-bottom: 1px solid rgba(191,149,63,0.2); display: inline-block; padding-bottom: 5px; }
 
-        /* Animation Cœurs */
         .heart { position: fixed; top: -10%; font-size: 18px; color: #d63031; pointer-events: none; z-index: 100; animation: fall linear forwards; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
     </style>
@@ -52,10 +50,10 @@
         <div class="overlay-dark"></div>
         <div class="relative z-10 text-center px-4">
             <p class="uppercase tracking-[0.5em] text-[10px] mb-6 opacity-70 reveal active">Invitation Officielle</p>
-            <h1 class="serif text-5xl mb-4 text-gold italic font-light reveal active" style="transition-delay: 0.3s;">Fabrice & Martine</h1>
-            <div class="w-12 h-[1px] bg-gold mx-auto my-8 reveal active" style="transition-delay: 0.5s;"></div>
-            <p class="text-sm tracking-[0.2em] font-light uppercase reveal active" id="welcome-name" style="transition-delay: 0.7s;">Chargement...</p>
-            <div class="mt-24 animate-bounce opacity-40 text-[9px] tracking-[0.3em]">Faire défiler</div>
+            <h1 class="serif text-5xl mb-4 text-gold italic font-light reveal active">Fabrice & Martine</h1>
+            <div class="w-12 h-[1px] bg-gold mx-auto my-8 reveal active"></div>
+            <p class="text-sm tracking-[0.2em] font-light uppercase reveal active" id="welcome-name">Chargement...</p>
+            <div class="mt-24 animate-bounce opacity-40 text-[9px] tracking-[0.3em]">Défiler</div>
         </div>
     </section>
 
@@ -63,17 +61,17 @@
     <section class="section-bg" style="background-image: url('https://i.postimg.cc/p9vSrNjL/IMG-20260713-WA0011.jpg');">
         <div class="overlay-dark" style="background: rgba(0,0,0,0.85);"></div>
         <div class="relative z-10 w-full max-w-lg px-6 reveal">
-            <div class="premium-card text-center">
+            <div class="premium-card text-center shadow-2xl">
                 <h2 class="serif text-3xl text-gold mb-12 italic">Le Programme</h2>
                 <div class="space-y-12">
-                    <div class="reveal" style="transition-delay: 0.2s;">
+                    <div>
                         <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-2">10 Heures Précises</p>
                         <p class="serif text-xl mb-1 text-white">Bénédiction Nuptiale</p>
                         <p class="text-[11px] font-light text-gray-400 uppercase mb-4">Paroisse ALEC, Matete</p>
                         <a href="https://maps.google.com/?q=5eme+rue+88+Matete+Kinshasa" class="border-gold px-6 py-2 text-[9px] uppercase tracking-widest text-gold hover:bg-gold hover:text-black transition-all inline-block">Itinéraire Maps</a>
                     </div>
                     <div class="w-8 h-[1px] bg-gold/30 mx-auto"></div>
-                    <div class="reveal" style="transition-delay: 0.4s;">
+                    <div>
                         <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-2">19 Heures Précises</p>
                         <p class="serif text-xl mb-1 text-white">Soirée de Gala</p>
                         <p class="text-[11px] font-light text-gray-400 uppercase mb-4">Salle GG MART, Lemba</p>
@@ -84,20 +82,57 @@
         </div>
     </section>
 
-    <!-- RSVP -->
+    <!-- RSVP & BOISSONS -->
     <section class="bg-[#050505] py-24 px-6 overflow-hidden">
         <div class="max-w-md mx-auto text-center reveal">
-            <h2 class="serif text-4xl text-gold mb-4 italic">Confirmation</h2>
-            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-12">Sélectionnez votre rafraîchissement</p>
-            <div class="grid grid-cols-2 gap-4 mb-12">
-                <button onclick="selectDrink('Champagne', this)" class="drink-chip reveal" style="transition-delay: 0.1s;">Champagne</button>
-                <button onclick="selectDrink('Vin de Prestige', this)" class="drink-chip reveal" style="transition-delay: 0.2s;">Vin de Prestige</button>
-                <button onclick="selectDrink('Heineken', this)" class="drink-chip reveal" style="transition-delay: 0.3s;">Heineken</button>
-                <button onclick="selectDrink('Liqueur', this)" class="drink-chip reveal" style="transition-delay: 0.4s;">Liqueur</button>
-                <button onclick="selectDrink('Jus Naturel', this)" class="drink-chip reveal" style="transition-delay: 0.5s;">Jus Naturel</button>
-                <button onclick="selectDrink('Coca-Cola', this)" class="drink-chip reveal" style="transition-delay: 0.6s;">Coca-Cola</button>
+            <h2 class="serif text-4xl text-gold mb-4 italic text-gold">Confirmation</h2>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-8">Personnalisez votre rafraîchissement</p>
+            
+            <div id="drinks-container" class="space-y-4 mb-12 text-center">
+                
+                <!-- PRESTIGE -->
+                <p class="category-title">Bulles & Prestige</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="selectDrink('Champagne', this)" class="drink-chip">Champagne</button>
+                    <button onclick="selectDrink('Vin Rouge Prestige', this)" class="drink-chip">Vin Rouge</button>
+                    <button onclick="selectDrink('Vin Blanc Sec', this)" class="drink-chip">Vin Blanc</button>
+                    <button onclick="selectDrink('Whisky / Liqueur', this)" class="drink-chip">Spiritueux</button>
+                </div>
+
+                <!-- BRASSERIE -->
+                <p class="category-title">Côté Brasserie</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="selectDrink('Heineken', this)" class="drink-chip">Heineken</button>
+                    <button onclick="selectDrink('Mutzig', this)" class="drink-chip">Mutzig</button>
+                    <button onclick="selectDrink('Primus', this)" class="drink-chip">Primus</button>
+                    <button onclick="selectDrink('Legend', this)" class="drink-chip">Legend</button>
+                    <button onclick="selectDrink('Tembo', this)" class="drink-chip">Tembo</button>
+                    <button onclick="selectDrink('Castel', this)" class="drink-chip">Castel</button>
+                </div>
+
+                <!-- SUCRES -->
+                <p class="category-title">Douceurs & Softs</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="selectDrink('Coca-Cola', this)" class="drink-chip">Coca-Cola</button>
+                    <button onclick="selectDrink('Fanta Orange', this)" class="drink-chip">Fanta</button>
+                    <button onclick="selectDrink('Sprite', this)" class="drink-chip">Sprite</button>
+                    <button onclick="selectDrink('VitalO', this)" class="drink-chip">Vital'O</button>
+                    <button onclick="selectDrink('Tonic', this)" class="drink-chip">Tonic</button>
+                    <button onclick="selectDrink('Malta', this)" class="drink-chip">Malta</button>
+                </div>
+
+                <!-- VITALITE -->
+                <p class="category-title">Vitalité</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="selectDrink('Jus d\'Orange Naturel', this)" class="drink-chip">Jus d'Orange</button>
+                    <button onclick="selectDrink('Jus d\'Ananas Naturel', this)" class="drink-chip">Jus d'Ananas</button>
+                    <button onclick="selectDrink('Eau Minérale Premium', this)" class="drink-chip col-span-2">Eau Minérale</button>
+                </div>
             </div>
-            <button onclick="submitRSVP()" class="bg-gold w-full py-5 rounded-sm text-[11px] uppercase tracking-[0.4em] font-bold shadow-2xl">Confirmer la présence</button>
+
+            <button onclick="submitRSVP()" class="bg-gold w-full py-5 rounded-sm text-[11px] uppercase tracking-[0.4em] font-bold shadow-2xl">
+                Confirmer ma présence
+            </button>
         </div>
     </section>
 
@@ -120,17 +155,17 @@
         <div class="absolute inset-0 bg-white/95 backdrop-blur-sm"></div>
         <div class="relative z-10 text-black text-center p-8 w-full reveal">
             <h2 class="serif text-4xl mb-10 italic">Identification</h2>
-            <div class="p-4 border border-gray-100 bg-white inline-block shadow-2xl mb-8 reveal" style="transition-delay: 0.3s;">
+            <div class="p-4 border border-gray-100 bg-white inline-block shadow-2xl mb-8 reveal">
                 <img id="qr-image" src="" alt="QR" class="w-48 h-48">
             </div>
             <div class="space-y-6">
-                <p id="guest-label" class="serif text-2xl uppercase tracking-widest border-b border-black/10 pb-2 inline-block px-4 reveal" style="transition-delay: 0.5s;"></p>
+                <p id="guest-label" class="serif text-2xl uppercase tracking-widest border-b border-black/10 pb-2 inline-block px-4 font-light"></p>
                 <div class="flex justify-center gap-4 mt-6">
-                    <div class="bg-gray-50 px-6 py-3 border-l-4 border-gold reveal" style="transition-delay: 0.7s;">
+                    <div class="bg-gray-50 px-6 py-3 border-l-4 border-gold reveal">
                         <p class="text-[8px] uppercase tracking-widest text-gray-400 mb-1">Village</p>
                         <p id="village-label" class="font-bold text-sm text-[#aa771c] uppercase"></p>
                     </div>
-                    <div class="bg-black text-white px-6 py-3 shadow-xl reveal" style="transition-delay: 0.9s;">
+                    <div class="bg-black text-white px-6 py-3 shadow-xl reveal">
                         <p class="text-[8px] uppercase tracking-widest opacity-50 mb-1">Table</p>
                         <p id="table-label" class="font-bold text-sm text-gold uppercase"></p>
                     </div>
@@ -139,11 +174,14 @@
         </div>
     </section>
 
+    <footer class="bg-white py-12 text-center">
+        <p class="text-[9px] uppercase tracking-[0.6em] text-black opacity-30 italic">Union Sacrée • Fabrice & Martine • 2026</p>
+    </footer>
+
     <script>
         const MON_NUMERO = "243812836540";
         let selectedDrink = "";
 
-        // GESTION URL
         const params = new URLSearchParams(window.location.search);
         const nomInvite = params.get('n') || "Cher Invité";
         const nomVillage = params.get('v') || "À Déterminer";
@@ -156,13 +194,11 @@
         
         document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=VIP-FM2026-${nomInvite}`;
 
-        // ANIMATION REVEAL AU SCROLL
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
         function selectDrink(name, el) {
@@ -183,7 +219,6 @@
             window.location.href = `https://wa.me/${MON_NUMERO}?text=*LIVRE D'OR*%0A👤 *De:* ${nomInvite.replace(/_/g, ' ')}%0A✉️ *Message:* ${msg}`;
         }
 
-        // Cœurs flottants
         setInterval(() => {
             const h = document.createElement('div');
             h.className = 'heart'; h.innerHTML = '❤️';
