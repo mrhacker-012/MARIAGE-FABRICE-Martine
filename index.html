@@ -12,7 +12,6 @@
         body { font-family: 'Montserrat', sans-serif; background-color: var(--dark); color: #ffffff; margin: 0; overflow-x: hidden; }
         .serif { font-family: 'Playfair Display', serif; }
         
-        /* Or Métallique Animé */
         .text-gold { background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .bg-gold { background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%); color: #000; position: relative; overflow: hidden; }
         
@@ -34,7 +33,6 @@
 
         .premium-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 2px; padding: 40px 20px; }
         
-        /* Boutons Boissons */
         .drink-chip { border: 1px solid rgba(255,255,255,0.15); padding: 10px 5px; font-size: 9px; letter-spacing: 1px; transition: all 0.3s ease; text-transform: uppercase; background: rgba(255,255,255,0.02); color: #aaa; width: 100%; }
         .drink-chip.selected { background: #bf953f; color: white; border-color: #bf953f; transform: scale(1.05); box-shadow: 0 0 15px rgba(191, 149, 63, 0.3); }
         .category-title { font-size: 10px; color: #bf953f; letter-spacing: 3px; margin-bottom: 15px; margin-top: 25px; text-transform: uppercase; border-bottom: 1px solid rgba(191,149,63,0.2); display: inline-block; padding-bottom: 5px; }
@@ -45,12 +43,12 @@
 </head>
 <body>
 
-    <!-- MUSIQUE (Cachée, jouera dès le premier clic n'importe où) -->
+    <!-- AUDIO TAG -->
     <audio id="bg-music" loop>
-        <source src="Dans_Ma_Tête(128k).m4a" type="audio/mpeg">
+        <source src="Dans_Ma_Tete(128k).m4a" type="audio/mp4">
     </audio>
 
-    <!-- HERO SECTION -->
+    <!-- SECTION 1 : ACCUEIL -->
     <section class="section-bg" style="background-image: url('https://i.postimg.cc/kDHh8RSz/A7400159.jpg');">
         <div class="overlay-dark" style="background: rgba(0, 0, 0, 0.65);"></div>
         <div class="relative z-10 text-center px-4">
@@ -88,18 +86,19 @@
         </div>
     </section>
 
-    <!-- CONFIRMATION & BOISSONS -->
+    <!-- RSVP & BOISSONS -->
     <section class="bg-[#050505] py-24 px-6 overflow-hidden">
         <div class="max-w-md mx-auto text-center reveal">
-            <h2 class="serif text-4xl text-gold mb-4 italic">Confirmation</h2>
+            <h2 class="serif text-4xl text-gold mb-4 italic text-gold">Confirmation</h2>
             <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-8">Personnalisez votre rafraîchissement</p>
+            
             <div id="drinks-container" class="space-y-4 mb-12 text-center">
                 <p class="category-title">Bulles & Prestige</p>
                 <div class="grid grid-cols-2 gap-3">
                     <button onclick="selectDrink('Champagne', this)" class="drink-chip">Champagne</button>
                     <button onclick="selectDrink('Vin Rouge Prestige', this)" class="drink-chip">Vin Rouge</button>
                     <button onclick="selectDrink('Vin Blanc Sec', this)" class="drink-chip">Vin Blanc</button>
-                    <button onclick="selectDrink('Spiritueux', this)" class="drink-chip">Spiritueux</button>
+                    <button onclick="selectDrink('Whisky / Liqueur', this)" class="drink-chip">Spiritueux</button>
                 </div>
                 <p class="category-title">Côté Brasserie</p>
                 <div class="grid grid-cols-3 gap-2">
@@ -110,29 +109,38 @@
                     <button onclick="selectDrink('Tembo', this)" class="drink-chip">Tembo</button>
                     <button onclick="selectDrink('Castel', this)" class="drink-chip">Castel</button>
                 </div>
-                <p class="category-title">Softs & Eau</p>
+                <p class="category-title">Douceurs & Softs</p>
                 <div class="grid grid-cols-3 gap-2">
                     <button onclick="selectDrink('Coca-Cola', this)" class="drink-chip">Coca-Cola</button>
                     <button onclick="selectDrink('Fanta Orange', this)" class="drink-chip">Fanta</button>
-                    <button onclick="selectDrink('Jus Naturel', this)" class="drink-chip">Jus Naturel</button>
-                    <button onclick="selectDrink('Eau Minérale', this)" class="drink-chip col-span-3">Eau Minérale</button>
+                    <button onclick="selectDrink('Sprite', this)" class="drink-chip">Sprite</button>
+                    <button onclick="selectDrink('VitalO', this)" class="drink-chip">Vital'O</button>
+                    <button onclick="selectDrink('Tonic', this)" class="drink-chip">Tonic</button>
+                    <button onclick="selectDrink('Malta', this)" class="drink-chip">Malta</button>
+                </div>
+                <p class="category-title">Vitalité</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="selectDrink('Jus d\'Orange Naturel', this)" class="drink-chip">Jus d'Orange</button>
+                    <button onclick="selectDrink('Jus d\'Ananas Naturel', this)" class="drink-chip">Jus d'Ananas</button>
+                    <button onclick="selectDrink('Eau Minérale Premium', this)" class="drink-chip col-span-2">Eau Minérale</button>
                 </div>
             </div>
-            <button onclick="submitRSVP()" class="bg-gold w-full py-5 rounded-sm text-[11px] uppercase tracking-[0.4em] font-bold shadow-2xl">Confirmer ma présence</button>
+
+            <button onclick="submitRSVP()" class="bg-gold w-full py-5 rounded-sm text-[11px] uppercase tracking-[0.4em] font-bold shadow-2xl">
+                Confirmer ma présence
+            </button>
         </div>
     </section>
 
     <!-- LIVRE D'OR -->
-    <section class="bg-[#0a0a0a] py-24 px-6 border-t border-gold/10">
-        <div class="max-w-md mx-auto text-center reveal">
-            <h2 class="serif text-4xl text-gold mb-4 italic">Livre d'Or</h2>
-            <div class="relative mb-8">
-                <textarea id="guestbook-msg" placeholder="Laissez un message de bonheur..." class="w-full h-40 bg-transparent border-gold/30 border p-6 text-sm text-gray-200 outline-none italic serif"></textarea>
-                <div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-gold"></div>
-                <div class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold"></div>
-            </div>
-            <button onclick="submitGuestbook()" class="border border-gold px-10 py-4 text-[10px] uppercase tracking-[0.4em] text-gold">Envoyer le message</button>
+    <section class="bg-[#0a0a0a] py-24 px-6 border-t border-gold/10 text-center">
+        <h2 class="serif text-4xl text-gold mb-4 italic">Livre d'Or</h2>
+        <div class="relative mb-8 max-w-md mx-auto">
+            <textarea id="guestbook-msg" placeholder="Laissez un message..." class="w-full h-40 bg-transparent border-gold/30 border p-6 text-sm text-gray-200 outline-none italic serif"></textarea>
+            <div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-gold"></div>
+            <div class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold"></div>
         </div>
+        <button onclick="submitGuestbook()" class="border border-gold px-10 py-4 text-[10px] uppercase tracking-[0.4em] text-gold">Envoyer le message</button>
     </section>
 
     <!-- PASS VIP -->
@@ -143,15 +151,13 @@
             <div class="p-4 border border-gray-100 bg-white inline-block shadow-2xl mb-8 reveal">
                 <img id="qr-image" src="" alt="QR" class="w-48 h-48">
             </div>
-            <div class="space-y-6 text-center">
+            <div class="space-y-6">
                 <p id="guest-label" class="serif text-2xl uppercase tracking-widest border-b border-black/10 pb-2 inline-block px-4 font-light"></p>
                 <div class="flex justify-center gap-4 mt-6">
-                    <div class="bg-gray-50 px-6 py-3 border-l-4 border-gold shadow-sm">
-                        <p class="text-[8px] uppercase tracking-widest text-gray-400 mb-1">Village</p>
+                    <div class="bg-gray-50 px-6 py-3 border-l-4 border-gold">
                         <p id="village-label" class="font-bold text-sm text-[#aa771c] uppercase"></p>
                     </div>
                     <div class="bg-black text-white px-6 py-3 shadow-xl">
-                        <p class="text-[8px] uppercase tracking-widest opacity-50 mb-1">Table</p>
                         <p id="table-label" class="font-bold text-sm text-gold uppercase"></p>
                     </div>
                 </div>
@@ -168,13 +174,10 @@
         let selectedDrink = "";
         const audio = document.getElementById('bg-music');
 
-        // MUSIQUE AUTO AU PREMIER CLIC (Obligatoire sur mobile)
-        document.body.addEventListener('touchstart', function() {
-            if (audio.paused) { audio.play(); }
-        }, { once: true });
-        document.body.addEventListener('mousedown', function() {
-            if (audio.paused) { audio.play(); }
-        }, { once: true });
+        // Musique au premier clic/touche (Obligatoire sur mobile)
+        const playMusic = () => { if (audio.paused) audio.play(); };
+        document.body.addEventListener('touchstart', playMusic, { once: true });
+        document.body.addEventListener('mousedown', playMusic, { once: true });
 
         // GESTION URL
         const params = new URLSearchParams(window.location.search);
@@ -185,11 +188,10 @@
         document.getElementById('welcome-name').innerText = "Bienvenue, " + nomInvite.replace(/_/g, ' ');
         document.getElementById('guest-label').innerText = nomInvite.replace(/_/g, ' ');
         document.getElementById('village-label').innerText = nomVillage.replace(/_/g, ' ');
-        document.getElementById('table-label').innerText = numTable.replace(/_/g, ' ');
+        document.getElementById('table-label').innerText = "TABLE " + numTable.replace(/_/g, ' ');
         
-        document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=VIP-FM-2026-${nomInvite}-${numTable}`;
+        document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=VIP-FM2026-${nomInvite}-${numTable}`;
 
-        // ANIMATIONS
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
@@ -213,7 +215,6 @@
             window.location.href = `https://wa.me/${MON_NUMERO}?text=*LIVRE D'OR*%0A👤 *De:* ${nomInvite.replace(/_/g, ' ')}%0A✉️ *Message:* ${msg}`;
         }
 
-        // CŒURS
         setInterval(() => {
             const h = document.createElement('div'); h.className = 'heart'; h.innerHTML = '❤️';
             h.style.left = Math.random() * 100 + "vw";
