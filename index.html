@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIP Invitation - Fabrice & Martine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Ajout de la police Signature Royale : Great Vibes -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #c5a059; --gold-light: #e2c28a; --dark: #0a0a0a; }
@@ -13,20 +12,17 @@
         body { font-family: 'Montserrat', sans-serif; background-color: var(--dark); color: #ffffff; margin: 0; overflow-x: hidden; }
         .serif { font-family: 'Playfair Display', serif; }
         .signature { font-family: 'Great Vibes', cursive; color: #bf953f; }
-        
         .text-gold { background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .bg-gold { background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%); color: #000; position: relative; overflow: hidden; }
         .bg-gold::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: rgba(255,255,255,0.2); transform: rotate(45deg); animation: shine 3s infinite; }
         @keyframes shine { 0% { margin-left: -150%; } 100% { margin-left: 150%; } }
-        
         .section-bg { background-size: cover; background-position: center; background-attachment: fixed; position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
         .overlay-dark { background: rgba(0, 0, 0, 0.7); position: absolute; inset: 0; }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .premium-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 2px; padding: 40px 20px; }
-        
         .drink-chip { border: 1px solid rgba(255,255,255,0.15); padding: 10px 5px; font-size: 9px; letter-spacing: 1px; transition: all 0.3s ease; text-transform: uppercase; background: rgba(255,255,255,0.02); color: #aaa; width: 100%; }
-        .drink-chip.selected { background: #bf953f; color: white; border-color: #bf953f; transform: scale(1.05); box-shadow: 0 0 15px rgba(191, 149, 63, 0.3); }
+        .drink-chip.selected { background: #bf953f; color: white; border-color: #bf953f; transform: scale(1.05); }
         .category-title { font-size: 10px; color: #bf953f; letter-spacing: 3px; margin-bottom: 15px; margin-top: 25px; text-transform: uppercase; border-bottom: 1px solid rgba(191,149,63,0.2); display: inline-block; padding-bottom: 5px; }
         .heart { position: fixed; top: -10%; font-size: 18px; color: #d63031; pointer-events: none; z-index: 100; animation: fall linear forwards; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
@@ -34,9 +30,11 @@
 </head>
 <body>
 
-    <audio id="bg-music" loop preload="auto"><source src="musique.m4a" type="audio/mp4"></audio>
+    <!-- AUDIO CONFIGURÉ AVEC TON NOM DE FICHIER EXACT -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="Dans_Ma_Tete(128k).m4a" type="audio/mp4">
+    </audio>
 
-    <!-- SECTION 1 : HERO -->
     <section class="section-bg" style="background-image: url('https://i.postimg.cc/kDHh8RSz/A7400159.jpg');">
         <div class="overlay-dark" style="background: rgba(0, 0, 0, 0.65);"></div>
         <div class="relative z-10 text-center px-4">
@@ -48,86 +46,62 @@
         </div>
     </section>
 
-    <!-- PROGRAMME -->
     <section class="section-bg" style="background-image: url('https://i.postimg.cc/p9vSrNjL/IMG-20260713-WA0011.jpg');">
         <div class="overlay-dark" style="background: rgba(0,0,0,0.85);"></div>
         <div class="relative z-10 w-full max-w-lg px-6 reveal">
             <div class="premium-card text-center shadow-2xl">
                 <h2 class="serif text-3xl text-gold mb-4 italic">Le Programme</h2>
                 <p class="text-white tracking-[0.3em] text-[12px] mb-10 uppercase font-semibold">Samedi 15 août 2026</p>
-                <div class="space-y-12 text-center">
+                <div class="space-y-12">
                     <div>
                         <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-2 italic">10h00 : Bénédiction</p>
                         <p class="serif text-lg mb-1 text-white">Église Assemblée évangélique de la liberté en Christ (ALEC)</p>
-                        <p class="text-[11px] font-light text-gray-400 uppercase leading-relaxed">Adresse 5 ème rue n° 88 quartier de bonhomme commune matete.</p>
-                        <p class="text-[10px] text-gold italic mt-1 uppercase">Réf entré ma crevette saute-mouton</p>
+                        <p class="text-[11px] font-light text-gray-400 leading-relaxed uppercase">5 ème rue n° 88, Debonhomme, Matete</p>
+                        <p class="text-[10px] text-gold italic mt-1 uppercase">Réf : Entrée Ma Crevette</p>
                     </div>
                     <div class="w-8 h-[1px] bg-gold/30 mx-auto"></div>
                     <div>
                         <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-2 italic">19h00 : Soirée de Gala</p>
                         <p class="serif text-xl mb-1 text-white">Salle GG MART</p>
-                        <p class="text-[11px] font-light text-gray-400 uppercase mb-4">By pass 11593, Q. Échangeur, Lemba</p>
-                        <a href="https://maps.google.com/?q=Salle+GG+Mart+Lemba+Kinshasa" class="border-gold px-6 py-2 text-[9px] uppercase tracking-widest text-gold hover:bg-gold hover:text-black transition-all inline-block">Itinéraire Maps</a>
+                        <p class="text-[11px] font-light text-gray-400 uppercase">By pass 11593, Q. Échangeur, Lemba</p>
+                        <a href="https://maps.google.com/?q=Salle+GG+Mart+Lemba+Kinshasa" class="border-gold px-6 py-2 text-[9px] uppercase tracking-widest text-gold mt-4 inline-block">Itinéraire Maps</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- RSVP & BOISSONS -->
-    <section class="bg-[#050505] py-24 px-6 overflow-hidden">
-        <div class="max-w-md mx-auto text-center reveal">
-            <h2 class="serif text-4xl text-gold mb-4 italic text-gold">Confirmation</h2>
-            <div id="drinks-container" class="space-y-4 mb-12 text-center">
-                <p class="category-title">Bulles & Prestige</p>
-                <div class="grid grid-cols-2 gap-3">
-                    <button onclick="selectDrink('Champagne', this)" class="drink-chip">Champagne</button>
-                    <button onclick="selectDrink('Vin Rouge Prestige', this)" class="drink-chip">Vin Rouge</button>
-                    <button onclick="selectDrink('Vin Blanc Sec', this)" class="drink-chip">Vin Blanc</button>
-                    <button onclick="selectDrink('Spiritueux', this)" class="drink-chip">Spiritueux</button>
-                </div>
-                <p class="category-title">Côté Brasserie</p>
-                <div class="grid grid-cols-3 gap-2">
-                    <button onclick="selectDrink('Heineken', this)" class="drink-chip">Heineken</button>
-                    <button onclick="selectDrink('Mutzig', this)" class="drink-chip">Mutzig</button>
-                    <button onclick="selectDrink('Primus', this)" class="drink-chip">Primus</button>
-                    <button onclick="selectDrink('Legend', this)" class="drink-chip">Legend</button>
-                    <button onclick="selectDrink('Tembo', this)" class="drink-chip">Tembo</button>
-                    <button onclick="selectDrink('Castel', this)" class="drink-chip">Castel</button>
-                </div>
-                <p class="category-title">Softs & Eau</p>
-                <div class="grid grid-cols-3 gap-2">
-                    <button onclick="selectDrink('Coca-Cola', this)" class="drink-chip">Coca-Cola</button>
-                    <button onclick="selectDrink('Fanta Orange', this)" class="drink-chip">Fanta</button>
-                    <button onclick="selectDrink('Jus Naturel', this)" class="drink-chip">Jus Naturel</button>
-                    <button onclick="selectDrink('Eau Minérale', this)" class="drink-chip col-span-3">Eau Minérale</button>
-                </div>
+    <section class="bg-[#050505] py-24 px-6 text-center">
+        <h2 class="serif text-4xl text-gold mb-12 italic">Confirmation</h2>
+        <div id="drinks-container" class="max-w-md mx-auto space-y-6 mb-12">
+            <p class="category-title">Votre Boisson</p>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="selectDrink('Champagne', this)" class="drink-chip">Champagne</button>
+                <button onclick="selectDrink('Heineken', this)" class="drink-chip">Heineken</button>
+                <button onclick="selectDrink('Vin Rouge', this)" class="drink-chip">Vin Rouge</button>
+                <button onclick="selectDrink('Coca-Cola', this)" class="drink-chip">Coca-Cola</button>
+                <button onclick="selectDrink('Jus Naturel', this)" class="drink-chip">Jus Naturel</button>
+                <button onclick="selectDrink('Eau Minérale', this)" class="drink-chip">Eau Minérale</button>
             </div>
-            <button onclick="submitRSVP()" class="bg-gold w-full py-5 rounded-sm text-[11px] uppercase tracking-[0.4em] font-bold shadow-2xl">Confirmer ma présence</button>
         </div>
+        <button onclick="submitRSVP()" class="bg-gold w-full max-w-xs py-5 rounded-sm text-[11px] uppercase tracking-[0.4em] font-bold shadow-2xl">Confirmer ma présence</button>
     </section>
 
-    <!-- LIVRE D'OR -->
     <section class="bg-[#0a0a0a] py-24 px-6 border-t border-gold/10 text-center">
-        <h2 class="serif text-4xl text-gold mb-4 italic">Livre d'Or</h2>
-        <div class="relative mb-8 max-w-md mx-auto">
-            <textarea id="guestbook-msg" placeholder="Écrivez ici..." class="w-full h-40 bg-transparent border-gold/30 border p-6 text-sm text-gray-200 outline-none italic serif"></textarea>
-            <div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-gold"></div>
-            <div class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold"></div>
-        </div>
-        <button onclick="submitGuestbook()" class="border border-gold px-10 py-4 text-[10px] uppercase tracking-[0.4em] text-gold">Envoyer le message</button>
+        <h2 class="serif text-4xl text-gold mb-12 italic">Livre d'Or</h2>
+        <textarea id="guestbook-msg" placeholder="Un mot doux pour les mariés..." class="w-full max-w-md h-40 bg-transparent border-gold/30 border p-6 text-sm text-gray-200 outline-none italic serif"></textarea>
+        <button onclick="submitGuestbook()" class="block mx-auto mt-8 border border-gold px-10 py-4 text-[10px] uppercase tracking-[0.4em] text-gold">Envoyer au couple</button>
     </section>
 
-    <!-- PASS VIP -->
     <section class="section-bg" style="background-image: url('https://i.postimg.cc/ftr5x1Vd/A7400151.jpg');">
         <div class="absolute inset-0 bg-white/95 backdrop-blur-sm"></div>
         <div class="relative z-10 text-black text-center p-8 w-full reveal">
-            <h2 class="serif text-4xl mb-10 italic text-center">Identification</h2>
-            <div class="p-4 border border-gray-100 bg-white inline-block shadow-2xl mb-8 reveal">
+            <h2 class="serif text-4xl mb-10 italic">Identification VIP</h2>
+            <div class="p-4 border border-gray-100 bg-white inline-block shadow-2xl mb-8">
                 <img id="qr-image" src="" alt="QR" class="w-48 h-48">
             </div>
-            <div class="space-y-6 text-center">
-                <p id="guest-label" class="serif text-2xl uppercase tracking-widest border-b border-black/10 pb-2 inline-block px-4 font-light text-center w-full"></p>
+            <div class="space-y-6">
+                <p id="guest-label" class="serif text-2xl uppercase tracking-widest border-b border-black/10 pb-2 inline-block px-4 font-light w-full"></p>
                 <div class="flex justify-center gap-4 mt-6">
                     <div class="bg-gray-50 px-6 py-3 border-l-4 border-gold shadow-sm">
                         <p class="text-[8px] uppercase tracking-widest text-gray-400 mb-1">Village</p>
@@ -142,17 +116,23 @@
         </div>
     </section>
 
-    <!-- SECTION MARKETING : ELENAEL EVENTS -->
+    <!-- SIGNATURE MARKETING -->
     <div class="py-12 bg-white text-center border-t border-gray-100">
-        <p class="text-[9px] uppercase tracking-[0.4em] text-gray-400 mb-3">Une Signature Signée</p>
-        <a href="https://wa.me/243992180557" class="signature text-3xl hover:opacity-70 transition-opacity">Elenael Events</a>
+        <p class="text-[9px] uppercase tracking-[0.4em] text-gray-400 mb-3">Conception & Organisation</p>
+        <a href="https://wa.me/243812836540" class="signature text-4xl hover:opacity-70 transition-opacity">Elenael Events</a>
         <p class="text-[8px] text-gray-400 mt-3 uppercase tracking-[0.3em] italic">L'art de l'événement d'exception</p>
     </div>
+
+    <footer class="bg-white pb-12 text-center text-[9px] uppercase tracking-[0.6em] text-black opacity-30 italic">
+        Fabrice & Martine • 15 août 2026
+    </footer>
 
     <script>
         const MON_NUMERO = "243812836540";
         let selectedDrink = "";
         const audio = document.getElementById('bg-music');
+
+        // Musique : Correction pour mobile
         const startMusic = () => { if (audio.paused) audio.play(); };
         document.body.addEventListener('touchstart', startMusic, { once: true });
         document.body.addEventListener('click', startMusic, { once: true });
@@ -161,11 +141,12 @@
         const nomInvite = params.get('n') || "Cher Invité";
         const nomVillage = params.get('v') || "À Déterminer";
         const numTable = params.get('t') || "À l'accueil";
+
         document.getElementById('welcome-name').innerText = "Bienvenue, " + nomInvite.replace(/_/g, ' ');
         document.getElementById('guest-label').innerText = nomInvite.replace(/_/g, ' ');
         document.getElementById('village-label').innerText = nomVillage.replace(/_/g, ' ');
         document.getElementById('table-label').innerText = numTable.replace(/_/g, ' ');
-        document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=VIP-FM-2026-${nomInvite}-${numTable}`;
+        document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=VIP-FM-2026-${nomInvite}`;
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
@@ -180,7 +161,7 @@
 
         function submitRSVP() {
             if(!selectedDrink) return alert("Veuillez sélectionner une boisson.");
-            window.location.href = `https://wa.me/${MON_NUMERO}?text=*CONFIRMATION VIP*%0A--------------------------%0A👤 *Invité:* ${nomInvite.replace(/_/g, ' ')}%0A🌍 *Village:* ${nomVillage.replace(/_/g, ' ')}%0A📍 *Table:* ${numTable.replace(/_/g, ' ')}%0A🍷 *Boisson:* ${selectedDrink}`;
+            window.location.href = `https://wa.me/${MON_NUMERO}?text=*CONFIRMATION VIP*%0A👤 *Invité:* ${nomInvite.replace(/_/g, ' ')}%0A🌍 *Village:* ${nomVillage.replace(/_/g, ' ')}%0A📍 *Table:* ${numTable.replace(/_/g, ' ')}%0A🍷 *Boisson:* ${selectedDrink}`;
         }
 
         function submitGuestbook() {
